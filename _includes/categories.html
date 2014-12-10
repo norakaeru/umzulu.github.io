@@ -1,0 +1,10 @@
+<div class="post-category">
+  <h3>分类</h3>
+  <ul class="nav" role="tablist">
+    {% for category in site.categories %}
+    <li>
+      <a href="/categories/#{{ category | first }}">{{ category | first }}<span class="badge pull-right">{{ category | last | size }}</span></a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>

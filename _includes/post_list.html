@@ -1,0 +1,26 @@
+<ul class="post-list">
+   {% for post in paginator.posts %}
+    <li><div class="post-box"> 
+	  <div class="ti"></div>
+      <div class="ci"></div>
+      <h3><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></h3>
+      <div class="post-cate-date">
+        {% assign categories = post.categories %}
+        {% unless categories == empty %}
+        <span><i class="fa fa-folder-open-o"></i>
+          {% for category in categories %}
+          <a href="{{ BASE_PATH }}/categories#{{ category }}"> {{ category }}</a>
+          {% endfor %}
+        </span>
+        {% endunless %}
+        <span><i class="fa fa-clock-o"></i> {{ post.date | date:'%Y-%m-%d %H:%M' }}</span>
+      </div> 
+      <div class = "post-content">
+      {{ post.content | strip_html | truncatewords:100 }}
+      </div>
+      <div class = "read-more">
+        <a class="fa fa-link" href="{{ BASE_PATH }}{{ post.url }}"> 查看全文…</a>
+      </div> 
+    </div></li>
+   {% endfor %}
+</ul>

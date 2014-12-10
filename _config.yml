@@ -1,0 +1,32 @@
+# Site settings
+title: "Fengz 的自言自语"
+description: ""
+keywords: "umzulu"
+highlighter: pygments
+paginate: 10
+author:
+    name: umzulu
+    github: umzulu
+    email:   
+    twitter: zhchf
+    facebook:
+    googleplus:
+    weibo: zhchfddup
+
+# Build settings
+markdown: redcarpet
+redcarpet:
+    extensions: ["fenced_code_blocks", "tables", "highlight", "strikethrough"]
+permalink: pretty
+
+# comment
+comments:
+    duoshuo:
+        name: umzulu 
+        rcomments:
+            num: 10
+            avatar: 1
+            time: 1
+            title: 1
+            admin: 1
+            length: 30

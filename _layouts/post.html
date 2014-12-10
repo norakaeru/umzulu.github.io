@@ -1,0 +1,38 @@
+---
+layout: default
+---
+<div class="paper" style="width:95%">
+
+  <!-- post -->
+  <div id="post">
+    <!-- title -->
+    <h2 class="title">{{ page.title }}</h2>
+    <!-- date -->
+    <div class="marker">
+	  <a><span>{{ page.date | date:'%Y-%m-%d' }}</span></a>
+	</div>  
+    <!-- content -->
+    <div class="content">{{ content }}</div>
+    <!-- tags -->
+	{% unless page.tags == empty %}
+	<ul>
+	  <li><i class="fa fa-tags"></i></li>    
+      {% for tag in page.tags %}
+	  <li><a href="{{ BASE_PATH }}/tags#{{ tag }}">{{ tag }}</a></li>
+      {% endfor %}	  
+	</ul>
+	{% endunless %}
+    
+  </div>
+
+  <!-- pagebar -->
+  <div id="pagebar">
+    <a class="prev" href="{{ page.previous.url }}" title="{{ page.previous.title }}"><span><i class="fa fa-angle-left"></i></span></a>
+    <span style="display:inline-block;line-height:5em;float:left;"><a href="{{ page.previous.url }}">上一篇：{{ page.previous.title }}</a></span>
+    
+   <a class="next" href="{{ page.next.url }}" title="{{ page.next.title }}"><span><i class="fa fa-angle-right"></i></span></a>
+   <span style="display:inline-block;line-height:5em;float:right;"><a href="{{ page.next.url }}">下一篇：{{ page.next.title }}</a></span>
+  </div>
+
+  {% include comments.html %}
+</div>

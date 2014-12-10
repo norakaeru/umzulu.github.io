@@ -1,0 +1,30 @@
+---
+title: Categories
+layout: page
+---
+<div class="paper">
+  <div id="category">
+
+    <ul class="tag-box">
+      {% for item in site.categories %}
+      <li style="font-size: {{ item[1] | size | times: 100 | divided_by: site.categories.size | plus: 100 }}% ">
+	    <a href="#{{ item[0] }}">{{ item[0] }}<sup>{{ item[1] | size }}</sup></a>
+	  </li>
+      {% endfor %}
+    </ul>
+
+    <div class="tag-post">
+      {% for item in site.categories %}
+      <h3> {{ item[0] }} </h3>
+      <div><ul>
+        {% for post in item[1] %}
+        <li><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
+          <span class="datetime">{{ post.date | date:'%Y-%m-%d' }}</span>
+        </li>
+        {% endfor %}
+      </ul></div>
+      {% endfor%}
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,33 @@
+---
+title: Tags
+layout: page
+---
+ 
+<div class="paper">
+  <div id="tags">
+   {% assign sorted_tags = (site.tags | sort:0) %} 
+
+    <ul class="tag-box">
+      {% for tag in sorted_tags %}
+      <li style="font-size: {{ tag[1] | size | times: 100 | divided_by: site.tags.size | plus: 100 }}% ">
+	    <a href="#{{ tag[0] }}">{{ tag[0] }}<sup>{{ tag[1] | size }}</sup></a>
+	  </li>
+      {% endfor %}
+    </ul>
+
+    <div class="tag-post">
+      {% for tag in sorted_tags %}
+      <h3 id="{{ tag[0] }}">{{ tag[0] }}</h3>    
+      <div><ul>
+        {% for post in tag[1] %}
+	      <li><a href="{ BASE_PATH }}{{ post.url }}" >{{ post.title }}</a>
+		    <span class="datetime">{{ post.date | date: "%Y-%m-%d" }}</span>
+	      </li>
+	    {% endfor %}
+      </ul></div>    
+      {% endfor %}
+    </div> 
+
+  </div> 
+</div>
+

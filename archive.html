@@ -1,0 +1,38 @@
+---
+title: Archive
+layout: page
+---
+<div class="paper">
+  <div id="archive">
+
+  {% for post in site.posts %}
+    {% capture year %}{{ post.date | date: "%Y" }}{% endcapture %}
+    {% capture month %}{{ post.date | date: "%m" }}{% endcapture %}
+    {% capture nyear %}{{ post.previous.date | date: "%Y" }}{% endcapture %}
+    {% capture nmonth %}{{ post.previous.date | date: "%m" }}{% endcapture %}
+
+    {% if forloop.first %}
+        <h3>{{ year }} 年 {{ month }} 月</h3>
+        <div class="tag-post"><ul>
+    {% endif %}
+
+    <li>
+      <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
+      <span class="datetime">{{ post.categories | join: " / " }}</span>
+    </li>
+     
+    {% if forloop.last %}
+        </ul></div>
+    {% else %}
+        {% if year != nyear or month != nmonth%}
+        </ul></div> 
+        <h3>{{ year }} 年 {{ nmonth }} 月</h3>
+        <div class="tag-post"><ul>
+        {% endif %} 
+    {% endif %}
+
+  {% endfor %}
+
+  </div>
+</div>
+

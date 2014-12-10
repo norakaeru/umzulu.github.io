@@ -1,0 +1,12 @@
+<div class="page-list">
+  {% for page in (1..paginator.total_pages) %}
+    {% if page == paginator.page %}
+      <span class="page active">{{ page }}</span>
+    {% elsif page == 1 %}
+      <a href="/" class="page">{{ page }}</a>
+    {% else %}
+      <a href="{{ site.paginate_path | replace: ':num', page }}" class="page">{{ page }}</a>
+    {% endif %}
+  {% endfor %}
+</div>
+
