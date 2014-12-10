@@ -290,7 +290,10 @@ hr {
     margin-right: 5px;
     font-size:12px;
 }
-.post-box .post-content {margin-bottom:5px;}
+.post-box .post-content {
+    margin-bottom:5px;
+	font-size:13px;
+}
 .post-box .read-more {
     font-size:14px; 
     position:absolute; 
