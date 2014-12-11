@@ -10,9 +10,9 @@ author:
     facebook:
     googleplus:
     weibo: zhchfddup
-highlighter: true
-#pygments: false
-#highlighter: rouge
+#highlighter: true
+pygments: false
+highlighter: rouge
 markdown: redcarpet
 redcarpet:
     extensions: ["fenced_code_blocks", "tables", "highlight", "strikethrough"]
