@@ -13,10 +13,14 @@
           {% endfor %}
         </span>
         {% endunless %}
-        <span><i class="fa fa-clock-o"></i> {{ post.date | date:'%Y-%m-%d %H:%M' }}</span>
+        <span><i class="fa fa-clock-o"></i> {{ post.date | date:'%Y-%m-%d' }}</span>
       </div> 
       <div class = "post-content">
-      {{ post.content | strip_html | truncatewords:100 }}
+	  {% if post.content contains "<!-- more -->" %}
+        {{ post.content | split:'<!-- more -->' | first }}
+      {% else %}
+        {{ post.content }}
+      {% endif %} 
       </div>
       <div class = "read-more">
         <a class="fa fa-link" href="{{ BASE_PATH }}{{ post.url }}"> 查看全文…</a>
