@@ -2,8 +2,6 @@
 title: "Fengz 的自言自语"
 description: ""
 keywords: "umzulu"
-highlighter: pygments
-paginate: 10
 author:
     name: umzulu
     github: umzulu
@@ -12,14 +10,14 @@ author:
     facebook:
     googleplus:
     weibo: zhchfddup
-
-# Build settings
+highlighter: true
+#pygments: false
+#highlighter: rouge
 markdown: redcarpet
 redcarpet:
     extensions: ["fenced_code_blocks", "tables", "highlight", "strikethrough"]
+paginate: 10
 permalink: pretty
-
-# comment
 comments:
     duoshuo:
         name: umzulu 
