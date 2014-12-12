@@ -28,10 +28,10 @@ layout: default
   <!-- pagebar -->
   <div id="pagebar">
     <a class="prev" href="{{ page.previous.url }}" title="{{ page.previous.title }}"><span><i class="fa fa-angle-left"></i></span></a>
-    <span style="display:inline-block;line-height:5em;float:left;"><a href="{{ page.previous.url }}">上一篇：{{ page.previous.title }}</a></span>
+    <span style="display:inline-block;line-height:5em;float:left;"><a href="{{ page.previous.url }}">上一篇<span class="hidden-xs">：{{ page.previous.title }}</span></a></span>
     
    <a class="next" href="{{ page.next.url }}" title="{{ page.next.title }}"><span><i class="fa fa-angle-right"></i></span></a>
-   <span style="display:inline-block;line-height:5em;float:right;"><a href="{{ page.next.url }}">下一篇：{{ page.next.title }}</a></span>
+   <span style="display:inline-block;line-height:5em;float:right;"><a href="{{ page.next.url }}">下一篇<span class="hidden-xs">：{{ page.next.title }}</span></a></span>
   </div>
 
   {% include comments.html %}

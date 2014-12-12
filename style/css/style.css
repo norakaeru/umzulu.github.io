@@ -367,6 +367,9 @@ hr {
     color: #BBBBBB;
 }
 
+@media (max-width:767px) {
+#post {margin-top: 4em !important;}
+}
 #post, #comments {padding:0 1em;}
 #post .title {text-align:center;}
 #post .content {padding:1em 0;}
