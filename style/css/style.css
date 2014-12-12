@@ -31,6 +31,10 @@ hr {
     margin:10px 0
 }
 
+.warning {
+    color: #d32;
+}
+
 .highlight pre {background: #444;}
 
 /*header*/

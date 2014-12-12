@@ -24,12 +24,12 @@ tags: [值类型, 引用类型]
 typeof检测数据的类型，返回的值只可能有6种：`undefined`、`boolean`、`number`、`string`、`object`、`function`。
 
 ```javascript
-typeof(123);
-typeof("123");
-typeof(NaN); // "number"
-typeof(null);  // "object"
-typeof([]);  // "object"
-typeof(Array);  // "function"
-typeof(Object);  // "function"
-typeof(undefined);  // "undefined"
+> typeof(123);
+> typeof("123");
+> typeof(NaN); // "number"
+> typeof(null);  // "object"
+> typeof([]);  // "object"
+> typeof(Array);  // "function"
+> typeof(Object);  // "function"
+> typeof(undefined);  // "undefined"
 ```

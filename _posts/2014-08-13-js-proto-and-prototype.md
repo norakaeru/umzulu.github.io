@@ -60,19 +60,19 @@ var arr= [1,2,3];
 //var fun = new Function();
 var fun = function () {}; 
 
-> str.__proto__ === String.prototype; // true
-> obj.__proto__ === Object.prototype; // true
-> arr.__proto__ === Array.prototype; // true
-> fun.__proto__ === Function.prototype; // true
+> str.__proto__ === String.prototype // true
+> obj.__proto__ === Object.prototype // true
+> arr.__proto__ === Array.prototype // true
+> fun.__proto__ === Function.prototype // true
 ```
 
 (2) **所有构造器/函数的\_\_proto\_\_都指向Function.prototype**
 
 ```javascript
-> String.__proto__ === Function.prototype; // true
-> Object.__proto__ === Function.prototype; // true
-> Array.__proto__ === Function.prototype; // true
-> Function.__proto__ === Function.prototype; // true
+> String.__proto__ === Function.prototype // true
+> Object.__proto__ === Function.prototype // true
+> Array.__proto__ === Function.prototype // true
+> Function.__proto__ === Function.prototype // true
 ```
 
 自定义的函数也是：
@@ -80,7 +80,7 @@ var fun = function () {};
 ```javascript
 var Person = function () {};
 
-> Person.__proto__ === Function.prototype; // true
+> Person.__proto__ === Function.prototype // true
 ```
 
 那么`Function.prototype`是个什么东西？
