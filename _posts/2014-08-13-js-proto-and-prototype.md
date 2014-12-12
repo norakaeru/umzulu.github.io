@@ -4,7 +4,7 @@ title:  "javascript的原型链"
 keywords: "__proto__, prototype"
 description: ""
 category: javascript
-tags: [__proto__, prototype]
+tags: [prototype]
 ---
 
 ***1.\_\_proto\_\_ 与 prototype***
