@@ -7,7 +7,7 @@ layout: page
 
     <ul class="tag-box">
       {% for item in site.categories %}
-      <li style="font-size: {{ item[1] | size | times: 100 | divided_by: site.categories.size | plus: 100 }}% ">
+      <li style="font-size: {{ item[1] | size | times: 100 | divided_by: site.posts.size | plus: 100 }}% ">
 	    <a href="#{{ item[0] }}">{{ item[0] }}<sup>{{ item[1] | size }}</sup></a>
 	  </li>
       {% endfor %}
