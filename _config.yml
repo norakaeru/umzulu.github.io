@@ -18,6 +18,7 @@ redcarpet:
     extensions: ["fenced_code_blocks", "tables", "highlight", "strikethrough"]
 paginate: 10
 permalink: pretty
+cdn: http://fengz.qiniudn.com   
 comments:
     duoshuo:
         name: umzulu 

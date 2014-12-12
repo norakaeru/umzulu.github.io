@@ -211,7 +211,6 @@ hr {
   border-radius: 7px;
   transition: 1s;
 }
-#back-top a:hover {background: #666;}
 
 /* tag cloud*/
 #tagsCloud {
@@ -386,6 +385,17 @@ hr {
 }
 #post ul>li a:hover {
     background: #ddd;
+}
+#post p>img, .post-content p>img {
+    display: block;
+    margin: 0 auto;
+    width: 600px;
+    height: 400px;
+    border: 1px solid #dedede;
+    border-radius: 4px;
+}
+@media (max-width:767px) {
+#post p>img, .post-content p>img {width: 100% !important;}
 }
 
 /* duoshuo enhance */
