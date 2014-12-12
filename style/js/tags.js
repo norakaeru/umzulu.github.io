@@ -23,6 +23,8 @@ window.onload=function ()
 	var oTag=null;
 	
 	oDiv=document.getElementById('tagsCloud');
+
+	if (!oDiv) return;
 	
 	aA=oDiv.getElementsByTagName('a');
 	
