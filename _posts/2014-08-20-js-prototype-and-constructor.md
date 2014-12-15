@@ -29,7 +29,7 @@ var p = new Person("zhangsan");
 
 <!-- more -->
 
-首先`Person`的实例对象`p`的内置属性`__proto__`指向`Person`的原型对象`Person.prototype`；
+首先`Person`的实例对象`p`的原型属性`__proto__`指向`Person`的原型对象`Person.prototype`；
 
 然后`Person`的原型对象`Person.prototype`有一个`constructor`属性，而这个`constructor`又指回`Person`；
 
@@ -67,8 +67,47 @@ var p = new Programmer("zhangSan");
 > p.getName() // "my name is zhangSan" 
 ```
 
-核心是这句`Programmer.prototype = new Person();`，因为`Person`的实例可以调用`Person`原型中的方法, 所以`Programmer`的实例也可以调用`Person`原型中的方法。
+我们通过图例来分析一下：
 
 ![原型继承]({{site.cdn}}/prototype-inherit.png)
 
-上面关于继承的实现很粗糙，并且存在很多问题：
+很容易看出`Programmer.prototype.__proto__ === Person.prototype`，进而`p.__proto__.__proto__ === Person.prototype`。
+
+有人会问既然都是通过改变原型的指针来实现继承，那我直接把子类的原型指向父类的原型岂不更省力？即`Programmer.prototype = Person.prototype`。
+我来反驳一下，如果这样二者之间会形成强耦合，在修改`Programmer.prototype`的同时也修改了`Person.prototype`，
+所以一般要用<span class="warning">空函数过渡</span>或<span class="warning">实例对象过渡</span>来弱化耦合。
+
+上面的原型继承就是用实例对象过渡的方法，它是存在问题的：
+
+(1) 在定义子类时就先实例化了父类，这是不合适的。
+
+(2) 子类原型对象的`constructor`指针发生改变。
+
+```javascript
+> p.constructor  // function Person(name) {this.name = name;}
+// p是Programmer的实例，但是p.constructor不是指向Programmmer，而是Person
+```
+
+下面我们用空函数过渡的方法试一下：
+
+```javascript
+// 父类
+function Person(name) {
+    this.name = name;
+}
+Person.prototype.getName = function () {
+    console.log("my name is " + this.name);
+}
+// 子类
+function Programmer(name) {
+    this.name = name;
+}
+// 空函数
+function F(){}
+Programmer.prototype  = F.prototype = Person.prototype;
+Programmer.prototype.constructor = Programmer;
+
+var p = new Programmer("zhangSan");
+
+> p.getName() // "my name is zhangSan" 
+```
