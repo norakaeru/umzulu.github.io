@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "javascript的prototype与constructor"
-description: ""
+description: "prototype constructor"
 keywords: ""
 category: javascript
 tags: [prototype, constructor]

@@ -206,6 +206,7 @@ hr {
   position: fixed;
   bottom: 40px;
   right: 40px;
+  z-index: 99;
 }
 #back-top a {
   width: 50px;
@@ -345,6 +346,9 @@ hr {
     display: inline-block;
     margin:10px;
 }
+@media (max-width:767px) {
+.tag-box {padding: 0;}
+}
 .tag-box li {
     display:inline-block;
     margin:0 2px
@@ -373,7 +377,7 @@ hr {
     color: #BBBBBB;
 }
 
-@media (max-width:767px) {
+@media (max-width:991px) {
 #post {margin-top: 4em !important;}
 }
 #post, #comments {padding:0 1em;}
@@ -404,7 +408,9 @@ hr {
 @media (max-width:767px) {
 #post p>img, .post-content p>img {width: 100% !important;}
 }
-
+@media (min-width:768px) and (max-width:991px){
+#post p>img, .post-content p>img {width: 75% !important;}
+}
 /* duoshuo enhance */
 #ds-thread #ds-reset .ds-powered-by{
     display:none;

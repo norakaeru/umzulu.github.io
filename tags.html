@@ -21,7 +21,7 @@ layout: page
       <div><ul>
         {% for post in tag[1] %}
 	      <li><a href="{ BASE_PATH }}{{ post.url }}" >{{ post.title }}</a>
-		    <span class="datetime">{{ post.date | date: "%Y-%m-%d" }}</span>
+		    <span class="datetime hidden-xs">{{ post.date | date: "%Y-%m-%d" }}</span>
 	      </li>
 	    {% endfor %}
       </ul></div>    

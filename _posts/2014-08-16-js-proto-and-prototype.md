@@ -1,10 +1,10 @@
 ---
 layout: post
 title:  "javascript的__proto__与prototype"
-keywords: "__proto__, prototype"
+keywords: "__proto__与prototype"
 description: ""
 category: javascript
-tags: [prototype]
+tags: [prototype, 原型链]
 ---
 
 ***1.\_\_proto\_\_ 与 prototype***
