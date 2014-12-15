@@ -24,8 +24,8 @@ var p = "zhangsan";
 既然`prototype`是只有函数对象才有的属性，说到`function`，就得先说下`new`：
 
 ```javascript
-var Person = function () { this.name = "zhangsan" };
-var p = new Person();
+var Person = function (name) { this.name = name };
+var p = new Person("zhangsan");
 ```
 
 我们把`new`的过程拆分成以下三步：
@@ -34,7 +34,7 @@ var p = new Person();
 
 (2) `p.__proto__ = Person.prototype;` --将创建的obj的\_\_proto\_\_指向构造函数Person的prototype。
 
-(3) `Person.call(p);` --执行构造函数Person中的代码。
+(3) `Person.call(p);` --执行构造函数Person中的代码，即p的name属性赋值。
 
 <!-- more -->
 

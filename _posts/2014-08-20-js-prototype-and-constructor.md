@@ -14,12 +14,12 @@ tags: [prototype, constructor]
 我们可以用对象的`constructor`方法返回创建该对象的构造函数，需要注意的是：<span class="warning">constructor 并不是该对象自身的属性，而是其构造函数的原型对象的属性<span>。
 
 ```javascript
-var Person = function () {this.name = "zhangsan"};
-var p = new Person();
+function Person (name) {this.name = name};
+var p = new Person("zhangsan");
 
-> p.constructor  // function () {this.name = "zhangsan"}
+> p.constructor  // function Person (name) {this.name = name}
 > p.hasOwnProperty("constructor")  // false
-> Person.prototype.constructor  // function () {this.name = "zhangsan"}
+> Person.prototype.constructor  // function Person (name) {this.name = name}
 > Person.prototype.hasOwnProperty("constructor")  // true
 ```
 
@@ -48,5 +48,27 @@ var p = new Person();
 <span class="warning">原型继承是通过把子类的原型对象设置成父类的一个实例对象来实现的。 
 
 ```javascript
+// 父类
+function Person(name) {
+    this.name = name;
+}
+Person.prototype.getName = function () {
+    console.log("my name is " + this.name);
+}
+// 子类
+function Programmer(name) {
+    this.name = name;
+}
+// 将子类的原型指向父类的一个实例
+Programmer.prototype = new Person();
 
+var p = new Programmer("zhangSan");
+
+> p.getName() // "my name is zhangSan" 
 ```
+
+核心是这句`Programmer.prototype = new Person();`，因为`Person`的实例可以调用`Person`原型中的方法, 所以`Programmer`的实例也可以调用`Person`原型中的方法。
+
+![原型继承]({{site.cdn}}/prototype-inherit.png)
+
+上面关于继承的实现很粗糙，并且存在很多问题：
