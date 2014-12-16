@@ -23,7 +23,7 @@ var p = new Person("zhangsan");
 > Person.prototype.hasOwnProperty("constructor")  // true
 ```
 
-请看图：
+图例：
 
 ![原型对象的constructor]({{site.cdn}}/constructor.jpg)
 
@@ -43,9 +43,7 @@ var p = new Person("zhangsan");
 
 上面的例子只是为了说明`constructor`在原型链中的作用，更实际一点的意义在于通过`prototype`和`constructor`来实现继承。
 
-***3.原型继承***
-
-<span class="warning">原型继承是通过把子类的原型对象设置成父类的一个实例对象来实现的。 
+***3.原型继承*** 
 
 ```javascript
 // 父类
@@ -62,22 +60,21 @@ function Programmer(name) {
 // 将子类的原型指向父类的一个实例
 Programmer.prototype = new Person();
 
-var p = new Programmer("zhangSan");
+var p = new Programmer("zhangsan");
 
-> p.getName() // "my name is zhangSan" 
+> p.getName() // "my name is zhangsan" 
 ```
 
-我们通过图例来分析一下：
+图例：
 
 ![原型继承]({{site.cdn}}/prototype-inherit.png)
 
 很容易看出`Programmer.prototype.__proto__ === Person.prototype`，进而`p.__proto__.__proto__ === Person.prototype`。
 
 有人会问既然都是通过改变原型的指针来实现继承，那我直接把子类的原型指向父类的原型岂不更省力？即`Programmer.prototype = Person.prototype`。
-我来反驳一下，如果这样二者之间会形成强耦合，在修改`Programmer.prototype`的同时也修改了`Person.prototype`，
-所以一般要用<span class="warning">空函数过渡</span>或<span class="warning">实例对象过渡</span>来弱化耦合。
+我来反驳一下，如果这样二者之间会形成强耦合，那么任何对`Programmer.prototype`的修改，都会反映到`Person.prototype`，这肯定是不合适的。
 
-上面的原型继承就是用实例对象过渡的方法，它是存在问题的：
+上面的原型继承还存在一些问题：
 
 (1) 在定义子类时就先实例化了父类，这是不合适的。
 
@@ -88,7 +85,7 @@ var p = new Programmer("zhangSan");
 // p是Programmer的实例，但是p.constructor不是指向Programmmer，而是Person
 ```
 
-下面我们用空函数过渡的方法试一下：
+***3.改进的原型继承***
 
 ```javascript
 // 父类
@@ -102,12 +99,21 @@ Person.prototype.getName = function () {
 function Programmer(name) {
     this.name = name;
 }
-// 空函数
+// 空函数作为中介
 function F(){}
-Programmer.prototype  = F.prototype = Person.prototype;
+F.prototype = Person.prototype;
+// 将子类的原型指向空函数的实例
+Programmer.prototype = new F();
+// 修正子类construtor指针
 Programmer.prototype.constructor = Programmer;
 
-var p = new Programmer("zhangSan");
+var p = new Programmer("zhangsan");
 
-> p.getName() // "my name is zhangSan" 
+> p.getName() // "my name is zhangsan" 
 ```
+
+图例：
+
+![改进的原型继承]({{site.cdn}}/improved-prototype-inherit.png)
+
+可以看出`Programmer.prototype.__proto__ === F.prototype === Person.prototype`，进而`p.__proto__.__proto__ === Person.prototype`。
