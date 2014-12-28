@@ -36,8 +36,6 @@ var p = new Person("zhangsan");
 
 (3) `Person.call(p);` --执行构造函数Person中的代码，即p的name属性赋值。
 
-<!-- more -->
-
 ***3.\_\_proto\_\_ 与 prototype 的关系***
 
 (1) **所有对象的\_\_proto\_\_都指向其构造器的prototype**

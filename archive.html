@@ -13,7 +13,7 @@ layout: page
 
     {% if forloop.first %}
         <h3>{{ year }} 年 {{ month }} 月</h3>
-        <div class="tag-post"><ul>
+        <div class="tag-post"><div><ul>
     {% endif %}
 
     <li>
@@ -22,12 +22,12 @@ layout: page
     </li>
      
     {% if forloop.last %}
-        </ul></div>
+        </ul></div></div>
     {% else %}
         {% if year != nyear or month != nmonth%}
-        </ul></div> 
+        </ul></div></div> 
         <h3>{{ year }} 年 {{ nmonth }} 月</h3>
-        <div class="tag-post"><ul>
+        <div class="tag-post"><div><ul>
         {% endif %} 
     {% endif %}
 

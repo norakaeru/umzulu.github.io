@@ -27,8 +27,6 @@ var p = new Person("zhangsan");
 
 ![原型对象的constructor]({{site.cdn}}/constructor.jpg)
 
-<!-- more -->
-
 首先`Person`的实例对象`p`的原型属性`__proto__`指向`Person`的原型对象`Person.prototype`；
 
 然后`Person`的原型对象`Person.prototype`有一个`constructor`属性，而这个`constructor`又指回`Person`；

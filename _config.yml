@@ -1,5 +1,5 @@
 # Site settings
-title: "Fengz 的自言自语"
+title: "沉默是金"
 description: ""
 keywords: "umzulu"
 author:
@@ -16,14 +16,14 @@ highlighter: pygments
 markdown: redcarpet
 redcarpet:
     extensions: ["fenced_code_blocks", "tables", "highlight", "strikethrough"]
-paginate: 10
+paginate: 5
 permalink: pretty
 cdn: http://fengz.qiniudn.com   
 comments:
     duoshuo:
         name: umzulu 
         rcomments:
-            num: 10
+            num: 5
             avatar: 1
             time: 1
             title: 1
