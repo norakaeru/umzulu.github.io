@@ -1,8 +1,6 @@
 <ul class="post-list">
    {% for post in paginator.posts %}
     <li><div class="post-box"> 
-	  <div class="ti"></div>
-      <div class="ci"></div>
       <h3><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></h3>
       <div class="post-cate-date">
         {% assign categories = post.categories %}
