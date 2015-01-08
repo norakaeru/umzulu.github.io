@@ -25,12 +25,6 @@ hr {
     border-bottom: 1px dotted #ccc;
 }
 
-.wrapper {
-    border:1px solid rgba(0,0,0,0.17);
-    box-shadow:0 1px 10px rgba(170,170,170,0.8);
-    margin:10px 0
-}
-
 .warning {
     color: #d32;
 }
@@ -159,7 +153,7 @@ hr {
 
 /* paper overlay*/
 .paper {
-    width:90%;    
+    width:100%;    
     padding: 0 !important;
     margin: 20px auto;
     border: 1px solid #dedede;
@@ -248,7 +242,7 @@ hr {
     padding: 0; 
 }
 .post-list>li { 
-    margin: 10px 0 10px 10px; 
+    margin: 10px 0; 
 }
 .post-box {
     position: relative;
@@ -318,7 +312,8 @@ hr {
 .post-category, .post-comments, .post-tags {
      position: relative;
      background-color: #f5f5f5;
-     margin: 10px;
+     margin-top: 10px;
+     margin-left: 10px;
      padding: 10px;
      border-radius: 2px;
      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
