@@ -7,9 +7,13 @@ category: java
 tags: []
 ---
 
-读取计算机的硬件信息（如主板,硬盘,网卡等），常用于软件注册码的生成。
+***1.WMI***
 
-Windows提供了WMI接口，我们可以很方便地用它来查询计算机的软硬件信息，但是java是没法直接调用WMI的，我们可以通过调用java来调用VBS脚本来实现。
+Windows提供了WMI接口，通过它可以访问、配置、管理和监视几乎所有的Windows资源，我们可以很方便地用它来查询计算机的软硬件信息。
+
+***2.java调用WMI***
+
+java是没法直接操作WMI的，但是我们可以通过java调用VBS脚本来实现。
 
 ```java
 import java.io.BufferedReader;
@@ -51,40 +55,8 @@ public class HardWareUtil {
         }  
         return result.trim();  
     }  
-  
-    /** 
-     * 获取硬盘序列号 
-     * @param 盘符 
-     */  
-    public static String getHardDiskSN(String drive) {  
-        String result = "";  
-        try {  
-            File file = File.createTempFile("realhowto", ".vbs");  
-            file.deleteOnExit();  
-            FileWriter fw = new java.io.FileWriter(file);  
-  
-            String vbs = "Set objFSO = CreateObject(\"Scripting.FileSystemObject\")\n"  
-                    + "Set colDrives = objFSO.Drives\n"  
-                    + "Set objDrive = colDrives.item(\""  
-                    + drive  
-                    + "\")\n"  
-                    + "Wscript.Echo objDrive.SerialNumber"; // see note  
-            fw.write(vbs);  
-            fw.close();  
-            Process p = Runtime.getRuntime().exec("cscript //NoLogo " + file.getPath());  
-            BufferedReader input = new BufferedReader(new InputStreamReader(p.getInputStream()));  
-            String line;  
-            while ((line = input.readLine()) != null) {  
-                result += line;  
-            }  
-            input.close();  
-        } catch (Exception e) {  
-            e.printStackTrace();  
-        }  
-        return result.trim();  
-    }  
-  
-    /** 
+	
+	 /** 
      * 获取CPU序列号  
      */  
     public static String getCPUSerial() {  
@@ -117,7 +89,39 @@ public class HardWareUtil {
         }  
         return result.trim();  
     }  
-    
+  
+    /** 
+     * 获取硬盘序列号 
+     * @param 盘符 
+     */  
+    public static String getHardDiskSN(String drive) {  
+        String result = "";  
+        try {  
+            File file = File.createTempFile("realhowto", ".vbs");  
+            file.deleteOnExit();  
+            FileWriter fw = new java.io.FileWriter(file);  
+  
+            String vbs = "Set objFSO = CreateObject(\"Scripting.FileSystemObject\")\n"  
+                    + "Set colDrives = objFSO.Drives\n"  
+                    + "Set objDrive = colDrives.item(\""  
+                    + drive  
+                    + "\")\n"  
+                    + "Wscript.Echo objDrive.SerialNumber"; // see note  
+            fw.write(vbs);  
+            fw.close();  
+            Process p = Runtime.getRuntime().exec("cscript //NoLogo " + file.getPath());  
+            BufferedReader input = new BufferedReader(new InputStreamReader(p.getInputStream()));  
+            String line;  
+            while ((line = input.readLine()) != null) {  
+                result += line;  
+            }  
+            input.close();  
+        } catch (Exception e) {  
+            e.printStackTrace();  
+        }  
+        return result.trim();  
+    }  
+     
     /** 
      * 获取MAC地址 
      */  
@@ -140,13 +144,17 @@ public class HardWareUtil {
     }  
      
     public static void main(String[] args){  
-    	System.out.println("CPU SN:" + getCPUSerial());  
-    	System.out.println("主板 SN:" + getMotherboardSN());  
+	    System.out.println("主板 SN:" + getMotherboardSN());  
+    	System.out.println("CPU SN:" + getCPUSerial());      	
     	System.out.println("C盘  SN:" + getHardDiskSN("c"));
         System.out.println("MAC地址:" + getMac());      		
     }   
 }
 ```
+
+附：[WMI硬件类](https://msdn.microsoft.com/en-us/library/aa389273(v=vs.85).aspx)
+
+
 
 
 
