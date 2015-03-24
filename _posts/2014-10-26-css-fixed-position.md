@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "CSS的position:fixed"
+title:  "CSS position之fixed"
 keywords: "position:fixed"
 description: "CSS的position:fixed"
 category: css
