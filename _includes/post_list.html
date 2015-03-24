@@ -7,11 +7,11 @@
         {% unless categories == empty %}
         <span><i class="fa fa-folder-open-o"></i>
           {% for category in categories %}
-          <a href="{{ BASE_PATH }}/categories#{{ category }}"> {{ category }}</a>
+          <a href="{{ BASE_PATH }}/categories#{{ category }}"> {{ category | | upcase }}</a>
           {% endfor %}
         </span>
         {% endunless %}
-        <span><i class="fa fa-clock-o"></i> {{ post.date | date:'%Y-%m-%d' }}</span>
+        <span><i class="fa fa-calendar-o"></i> {{ post.date | date:'%Y-%m-%d' }}</span>
       </div> 
       <div class = "post-content">
 	  {% if post.content contains "<!-- more -->" %}
