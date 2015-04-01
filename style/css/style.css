@@ -25,6 +25,21 @@ hr {
     border-bottom: 1px dotted #ccc;
 }
 
+table {
+    width: 100%;
+    margin-bottom: 10px;
+    border: 1px solid #dedede;
+    border-collapse: collapse;
+    font-style: italic;
+}
+
+table tr th, table tr td {
+   padding: 5px;
+   border-left: 1px solid #dedede;
+   border-top: 1px solid #dedede;
+   line-height: 20px;
+}
+
 .warning {
     color: #d32;
 }
@@ -429,4 +444,5 @@ hr {
 .ds-recent-comments .ds-thread-title a:hover{
     color:#00a9a9;
 }
+
 
