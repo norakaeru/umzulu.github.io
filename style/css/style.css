@@ -259,6 +259,7 @@ table tr th, table tr td {
     color: rgba(51,51,51,0.9);
 }
 @media (max-width:767px) {
+.post-list {padding: 5px 0 !important;}
 .post-list>li {margin: 5px 0 !important;}
 .post-box h3 {font-size:inherit;}
 .post-list>li.post-box>h3,.post-box>div {margin-bottom:5px !important;}
