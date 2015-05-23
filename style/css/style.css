@@ -259,12 +259,13 @@ table tr th, table tr td {
     color: rgba(51,51,51,0.9);
 }
 @media (max-width:767px) {
-.post-list {margin: 0 5px !important;}
 .post-list>li {margin: 5px 0 !important;}
 .post-box h3 {font-size:inherit;}
-.post-box>h3,.post-box>div {margin-bottom:5px !important;}
+.post-list>li.post-box>h3,.post-box>div {margin-bottom:5px !important;}
 .post-box .post-content {height: 120px !important;}
-.row {  margin-right: 0; margin-left: -10px;}
+.row-xs { margin-left: -10px; margin-right: -10px; }
+.paper { margin: 10px auto;}
+.paper:before {top:0;right:0;}
 }
 .post-list { 
     margin: 0; 
