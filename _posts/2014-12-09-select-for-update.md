@@ -4,7 +4,7 @@ title:  "SELECT FOR UPDATE"
 keywords: "select for update"
 description: "数据库锁"
 category: oracle
-tags: [FOR UPDATE]
+tags: [for update]
 ---
 
 ***select ... for update***

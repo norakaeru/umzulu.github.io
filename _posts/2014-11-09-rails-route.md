@@ -7,8 +7,6 @@ category: rails
 tags: [REST]
 ---
 
-***REST Route***
-
 If you have the following in your `routes.rb` file, then `Rails` provides the following restful routes for you:
 
 ```ruby
