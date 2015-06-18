@@ -328,7 +328,7 @@ table tr th, table tr td {
     font-size:12px;
 }
 .post-box .post-content {
-    margin-bottom:5px;
+    /*margin-bottom:5px;*/
 	font-size:13px;
 	height: 200px;
     overflow: hidden;
