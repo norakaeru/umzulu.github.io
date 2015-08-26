@@ -382,7 +382,7 @@ table tr th, table tr td {
 }
 .tag-box li {
     display:inline-block;
-    margin:0 2px
+    margin:2px 0;
 }
 .tag-box li a {
     padding:2px 4px;
