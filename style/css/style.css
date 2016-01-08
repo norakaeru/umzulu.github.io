@@ -68,7 +68,6 @@ table tr th, table tr td {
 }
 @media (min-width:768px) {
 .navbar-collapse { position:absolute; right:0;bottom:0;}
-.nav>li>a {padding: 10px;}
 }
 
 .header a{color: #f8f8f8;}
@@ -83,6 +82,9 @@ table tr th, table tr td {
 .navbar-nav>li>a {
     padding-top: 5px;
     padding-bottom: 5px;
+}
+@media (max-width:767px) {
+.navbar-nav>li>a {padding: 5px 10px !important;}
 }
 .navbar-nav>li>a:hover, .navbar-nav>li>a:focus {
     background-color: transparent;
