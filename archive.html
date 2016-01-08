@@ -18,7 +18,7 @@ layout: page
 
     <li>
       <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
-      <span class="datetime">{{ post.categories | join: " / " }}</span>
+      <span class="datetime hidden-xs">{{ post.categories | join: " / " }}</span>
     </li>
      
     {% if forloop.last %}
