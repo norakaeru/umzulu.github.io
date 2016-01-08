@@ -68,13 +68,14 @@ table tr th, table tr td {
 }
 @media (min-width:768px) {
 .navbar-collapse { position:absolute; right:0;bottom:0;}
+.nav>li>a {padding: 10px;}
 }
 
 .header a{color: #f8f8f8;}
 .header-title a:hover, .header-title a:focus {padding-left: 5px;}
-.header-list a:hover, .header-list a:focus {color: #333;}
 .navbar-toggle {background: #f8f8f8;}
 .navbar-toggle .icon-bar {background: #333;}
+.navbar-collapse a:hover, .navbar-collapse a:focus {color: #333;}
 
 .navbar-nav>li {
     float: left;
