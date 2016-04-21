@@ -467,5 +467,8 @@ table tr th, table tr td {
 .ds-recent-comments .ds-thread-title a:hover{
     color:#00a9a9;
 }
+.highlight .language-PowerShell {
+    color:#d0d0d0;
+}
 
 
