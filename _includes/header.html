@@ -4,21 +4,21 @@
   <p>If you are using IE 9 or later, make sure you <a href="http://windows.microsoft.com/en-us/internet-explorer/use-compatibility-view#ie=ie-8" target="_blank" class="alert-link">turn off "Compatibility view"</a>.</p>
 </div>
 <![endif]-->
-  <nav class="navbar header">
-    <div class="header-pic">
-      <img id="umzulu" src="/style/img/revolution.png">
-    </div>
-    <h2 class="header-title">
-      <a title="{{ site.title }}" href="/">{{ site.title }}</a>
-    </h2>
-	
-	<div class="navbar-header">
+  <nav class="navbar" role="navigation">
+    <div class="container" style="position:relative;">	
+	  <div class="navbar-header">
         <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-           <span class="icon-bar"></span>
-           <span class="icon-bar"></span>
-           <span class="icon-bar"></span>
-         </button>         
-    </div>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="header-pic">
+          <img id="umzulu" src="/style/img/revolution.png">
+        </div>
+        <h2 class="header-title">
+          <a title="{{ site.title }}" href="/">{{ site.title }}</a>
+        </h2>
+	</div>
     <div class="navbar-collapse collapse" role="navigation">
       <ul class="nav navbar-nav">
         <li><a href="{{ BASE_PATH }}/archive" title="归档"><span class='fa fa-archive fa-2x'></span></a></li>
@@ -41,5 +41,6 @@
         {% endif %}
       </ul>
     </div>
+	</div>
   </nav>
-
+        

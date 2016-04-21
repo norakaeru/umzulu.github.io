@@ -1,25 +1,27 @@
 <ul class="post-list">
    {% for post in paginator.posts %}
     <li><div class="post-box"> 
-      <h3><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></h3>
-      <div class="post-cate-date">
-        {% assign categories = post.categories %}
-        {% unless categories == empty %}
-        <span><i class="fa fa-folder-open-o"></i>
-          {% for category in categories %}
-          <a href="{{ BASE_PATH }}/categories#{{ category }}"> {{ category | | upcase }}</a>
-          {% endfor %}
-        </span>
-        {% endunless %}
-        <span><i class="fa fa-calendar-o"></i> {{ post.date | date:'%Y-%m-%d' }}</span>
-      </div> 
+      <h3><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></h3>     
       <div class = "post-content">
 	  {% if post.content contains "<!-- more -->" %}
         {{ post.content | split:'<!-- more -->' | first }}
       {% else %}
         {{ post.content }}
       {% endif %} 
-      </div>	  
+      </div>
+      <div class="post-cate-date">
+        {% assign categories = post.categories %}
+        {% unless categories == empty %}
+        <span><i class="fa fa-folder-open"></i>
+          {% for category in categories %}
+          <a href="{{ BASE_PATH }}/categories#{{ category }}"> {{ category | | upcase }}</a>
+          {% endfor %}
+        </span>
+        {% endunless %}
+        <span><i class="fa fa-calendar"></i>
+		  <a href="{{ BASE_PATH }}/archive"> {{ post.date | date:'%Y-%m-%d' }}</a>
+		</span>
+      </div> 	  
     </div></li>
    {% endfor %}
 </ul>
