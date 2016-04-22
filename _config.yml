@@ -10,9 +10,7 @@ author:
     facebook:
     googleplus:
     weibo: zhchfddup
-highlighter: pygments
-#pygments: false
-#highlighter: rouge
+highlighter: rouge
 markdown: kramdown
 paginate: 5
 permalink: pretty
