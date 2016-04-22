@@ -10,8 +10,8 @@ author:
     facebook:
     googleplus:
     weibo: zhchfddup
-highlighter: rouge
 markdown: kramdown
+highlighter: pygments
 paginate: 5
 permalink: pretty
 cdn: http://fengz.qiniudn.com   
