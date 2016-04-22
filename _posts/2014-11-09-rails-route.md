@@ -9,9 +9,9 @@ tags: [REST]
 
 If you have the following in your `routes.rb` file, then `Rails` provides the following restful routes for you:
 
-```ruby
+{% highlight ruby %}
 resources :blogs
-```
+{% endhighlight %}
 
 HTTP Verb|REST URI       |Controller#Action|Helper
 ----     |----           |----             |----
@@ -25,11 +25,11 @@ DELETE   |/blogs/:id     |blogs#destroy    |blog_path(:id)
 
 And resources routes with a scope:
 
-```ruby
+{% highlight ruby %}
 scope :path => 'mine' do
   resources :blogs
 end
-```
+{% endhighlight %}
 
 HTTP Verb|REST URI            |Controller#Action|Helper
 ----     |----                |----             |----
@@ -41,11 +41,11 @@ GET      |/mine/blogs/:id/edit|blogs#edit       |edit\_blog_path(:id)
 PUT      |/mine/blogs/:id     |blogs#update     |blog_path(:id)
 DELETE   |/mine/blogs/:id     |blogs#destroy    |blog_path(:id)
 
-```ruby
+{% highlight ruby %}
 scope :moudle => 'mine' do
   resources :blogs
 end
-```
+{% endhighlight %}
 
 HTTP Verb|REST URI       |Controller#Action |Helper
 ----     |----           |----              |----
@@ -57,11 +57,11 @@ GET      |/blogs/:id/edit|mine/blogs#edit   |edit\_blog_path(:id)
 PUT      |/blogs/:id     |mine/blogs#update |blog_path(:id)
 DELETE   |/blogs/:id     |mine/blogs#destroy|blog_path(:id)
 
-```ruby
+{% highlight ruby %}
 scope :as => 'mine' do
   resources :blogs
 end
-```
+{% endhighlight %}
 
 HTTP Verb|REST URI       |Controller#Action|Helper
 ----     |----           |----             |----
@@ -75,11 +75,11 @@ DELETE   |/blogs/:id     |blogs#destroy    |mine\_blog_path(:id)
 
 And resources routes with a namespace:
 
-```ruby
+{% highlight ruby %}
 namespace :mine do
   resources :blogs
 end
-```
+{% endhighlight %}
 
 HTTP Verb|REST URI            |Controller#Action |Helper
 ----     |----                |----              |----
@@ -95,19 +95,19 @@ You may find that <span class="warning">the namespace scope will automatically a
 
 So
 
-```ruby
+{% highlight ruby %}
 namespace :mine do
   resources :blogs
 end
-```
+{% endhighlight %}
 
 is the same as 
 
-```ruby
+{% highlight ruby %}
 scope :path => 'mine', :moudle => 'mine', :as => 'mine' do
   resources :blogs
 end
-```
+{% endhighlight %}
 
 
 

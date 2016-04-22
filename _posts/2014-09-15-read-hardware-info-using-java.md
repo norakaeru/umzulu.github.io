@@ -15,7 +15,7 @@ Windows提供了WMI接口，通过它可以访问、配置、管理和监视几�
 
 java是没法直接操作WMI的，但是我们可以通过java调用VBS脚本来实现。
 
-```java
+{% highlight java %}
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileWriter;
@@ -150,7 +150,7 @@ public class HardWareUtil {
         System.out.println("MAC地址:" + getMac());      		
     }   
 }
-```
+{% endhighlight %}
 
 附：[WMI硬件类](https://msdn.microsoft.com/en-us/library/aa389273(v=vs.85).aspx)
 

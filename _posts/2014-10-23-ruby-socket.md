@@ -11,7 +11,7 @@ tags: [tcpsocket]
 
 客户端的实现如下：
 
-```ruby
+{% highlight ruby %}
 # encoding: utf-8
 require 'socket'
 
@@ -122,11 +122,11 @@ class TcpClient
 end
 
 TcpClient.new('localhost:4000').fetch
-```
+{% endhighlight %}
 
 简单的服务器端模拟：
 
-```ruby
+{% highlight ruby %}
 # encoding: utf-8
 require 'socket'
 require "rufus-scheduler"
@@ -159,6 +159,5 @@ while true do
     # client.close
   end
 end
-
-```
+{% endhighlight %}
 

@@ -10,8 +10,12 @@ author:
     facebook:
     googleplus:
     weibo: zhchfddup
+highlighter: rouge
 markdown: kramdown
-highlighter: pygments
+kramdown:
+    input: GFM
+    syntax_highlighter: rouge
+gems: [jekyll-paginate]
 paginate: 5
 permalink: pretty
 cdn: http://fengz.qiniudn.com   

@@ -13,20 +13,20 @@ tags: [prototype, 原型链]
 
 而`prototype`是只有函数对象(`function`)才有的显式内置属性，它即是该函数的原型对象。
 
-```javascript
+{% highlight javascript %}
 var p = "zhangsan";
 > p.__proto__  // String
 > p.prototype  // undefined
-```
+{% endhighlight %}
 
 ***2.new 的过程***
 
 既然`prototype`是只有函数对象才有的属性，说到`function`，就得先说下`new`：
 
-```javascript
+{% highlight javascript %}
 var Person = function (name) { this.name = name };
 var p = new Person("zhangsan");
-```
+{% endhighlight %}
 
 我们把`new`的过程拆分成以下三步：
 
@@ -42,13 +42,13 @@ var p = new Person("zhangsan");
 
 以上new的过程其实已间接证实了`__proto__`与`prototype`的关系，即：
 
-```javascript
+{% highlight javascript %}
 > p.__proto__ === Person.prototype; // true
-```
+{% endhighlight %}
 
 再举几个例子：
 
-```javascript
+{% highlight javascript%}
 //var str = new String("zhangsan");
 var str = "zhangsan";  
 //var obj = new Object("zhangsan");
@@ -62,45 +62,45 @@ var fun = function () {};
 > obj.__proto__ === Object.prototype // true
 > arr.__proto__ === Array.prototype // true
 > fun.__proto__ === Function.prototype // true
-```
+{% endhighlight %}
 
 (2) **所有构造器/函数的\_\_proto\_\_都指向Function.prototype**
 
-```javascript
+{% highlight javascript%}
 > String.__proto__ === Function.prototype // true
 > Object.__proto__ === Function.prototype // true
 > Array.__proto__ === Function.prototype // true
 > Function.__proto__ === Function.prototype // true
-```
+{% endhighlight %}
 
 自定义的函数也是：
 
-```javascript
+{% highlight javascript %}
 var Person = function () {};
 
 > Person.__proto__ === Function.prototype // true
-```
+{% endhighlight %}
 
 那么`Function.prototype`是个什么东西？
 
-```javascript
+{% highlight javascript %}
 > Function.prototype  // function Empty() {}
-```
+{% endhighlight %}
 
 咦，是个名为`Empty`的 function，上文说过函数的\_\_proto\_\_都指向`Function.prototype`，那么它的\_\_proto\_\_是不是也指向`Function.prototype`?
 
-```javascript
+{% highlight javascript %}
 > Function.prototype.__proto__  === Function.prototype  // false
 > Function.prototype.__proto__   // Object {}
 > Function.prototype.__proto__  === Object.prototype  // true
-```
+{% endhighlight %}
 
 结果证明是错误的，可见名为`Empty`的 function是一个特殊的函数，它的\_\_proto\_\_并不指向`Function.prototype`，而是指向`Object.prototype`。
 
 我们再看看`Object.prototype`又指向什么...
 
-```javascript
+{% highlight javascript %}
 > Object.prototype.__proto__  // null
-```
+{% endhighlight %}
 
 OK，这就是原型链的终点了。

@@ -10,7 +10,7 @@ tags: [注册表]
 java读注册表一般是通过第三方类库`jRegistry`来实现的，而[ Java Query Windows registry ](http://stonybrook.iteye.com/blog/1150823) 使用了一种更简便的方法，通过`Runtime.getRuntime().exec(cmd)`来调用`cmd`命令实现。
 
 
-```java
+{% highlight java %}
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringWriter;
@@ -80,7 +80,7 @@ public class WindowsReqistry {
 //    }
 
 }
-```
+{% endhighlight %}
 
 在实际应用中，把注册表项写在了`HKEY_LOCAL_MACHINE\SOFTWARE`目录下，能正常取到值。
 

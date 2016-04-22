@@ -23,7 +23,7 @@ tags: [数据类型]
 
 typeof检测数据的类型，返回的值只可能有6种：`undefined`、`boolean`、`number`、`string`、`object`、`function`。
 
-```javascript
+{% highlight javascript%}
 > typeof(123);
 > typeof("123");
 > typeof(NaN); // "number"
@@ -32,4 +32,4 @@ typeof检测数据的类型，返回的值只可能有6种：`undefined`、`bool
 > typeof(Array);  // "function"
 > typeof(Object);  // "function"
 > typeof(undefined);  // "undefined"
-```
+{% endhighlight%}

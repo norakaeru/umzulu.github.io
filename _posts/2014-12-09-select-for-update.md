@@ -19,49 +19,49 @@ ID_    |VALUE_
 
 我们用测试表TEST一下:
 
-```sql
+{% highlight sql %}
 --会话1
 SQL> select * from TEST where id_= 1 for update;
-```
+{% endhighlight %}
 
 第一行被`FOR UPDATE`加锁，然后我们再新建一个会话：
 
-```sql
+{% highlight sql %}
 --会话2
 SQL> select * from TEST where id_= 1;
 SQL> update TEST set value_ = 100 where id_= 1;
-```
+{% endhighlight %}
 
 会话2能`SELECT`到记录，但是在`UPDATE`时一直`BLOCK`，直至会话1执行`COMMIT`或者`ROLLBACK`为止：
 
-```sql
+{% highlight sql %}
 --会话1
 SQL> commit;
-```
+{% endhighlight %}
 
 我们继续对会话1`FOR UPDATE`加锁，然后再对会话2`FOR UPDATE`加锁，发现会话2也会一直`BLOCK`：
 
-```sql
+{% highlight sql %}
 --会话2
 SQL> select * from TEST where id_= 1 for update;
-```
+{% endhighlight %}
 
 那么怎么才能跳出`BLOCK`呢？
 
 ***nowait skip locked***
 
-```sql
+{% highlight sql %}
 --会话2
 SQL> select * from TEST where id_= 1 for update nowait;
 SQL> select * from TEST where id_= 1 for update wait 3;
-```
+{% endhighlight %}
 
 两条语句都能跳出`BLOCK`，且会抛出资源被占用异常。1会立即抛出，2会在等待3秒后抛出。
 
-```sql
+{% highlight sql %}
 --会话2
 SQL> select * from TEST where id_= 1 for update skip locked;
-```
+{% endhighlight %}
 
 啥意思呢？会话2在`FOR UPDATE`时，先判断是否被其他会话加锁了，是则跳过，否则加锁。
 

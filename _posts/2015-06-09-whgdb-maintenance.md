@@ -25,22 +25,22 @@ Oracle用户口令：`oracle`
 
 使用cisco vpn连接whg局域网，使用`securecrt`以`telnet`协议连入主机:
 
-```sql
+{% highlight sql %}
 $ sqlplus /nolog
 Sql>conn / as sysdba
 Sql>startup
 Sql>shutdown
-```
+{% endhighlight %}
 
-```sql   
+{% highlight sql %}   
 $ lsnrctl
 Lsnrctl> start
 Lsnrctl> stop
-```	
+{% endhighlight %}
 
 ***数据库备份***
 
-```PowerShell
+{% highlight bash %}  
 # backup.sh
 
 rq=`date +20%y%m%d`
@@ -48,13 +48,13 @@ export ORACLE_HOME=/orainst/oracle/app/oracle/product/11.2.0/dbhome_1
 export NLS_LANG=AMERICAN_AMERICA.ZHS16GBK
 export BACKUP=/orainst/whgdbbak
 $ORACLE_HOME/bin/exp system/oracle file=$BACKUP/whg_backup_$rq.dmp log=$BACKUP/whg_backup_$rq.log owner=whg rows=y
-```	
+{% endhighlight %}
 
 ***数据库还原***
 
-```sql  
+{% highlight sql %}  
 imp system/whgcs@whgcs file=whg_backup.dmp full=y ignore=y
-```	
+{% endhighlight %}
 
 注意：
 
@@ -66,8 +66,8 @@ imp system/whgcs@whgcs file=whg_backup.dmp full=y ignore=y
 
 ***测试***
 
-```sql   
+{% highlight sql %}   
 export ORACLE_SID =whgcs;
-```	
+{% endhighlight %}
 
 

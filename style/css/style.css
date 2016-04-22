@@ -40,7 +40,8 @@ table tr th, table tr td {
 
 .warning { color: #d32; }
 
-.highlight pre {background: #444;}
+.highlight pre {background: #444;} 
+.highlight pre code {color: #f8f8f8;}
 
 /*header*/
 .header-pic {
@@ -467,8 +468,4 @@ table tr th, table tr td {
 .ds-recent-comments .ds-thread-title a:hover{
     color:#00a9a9;
 }
-.highlight .language-PowerShell {
-    color:#d0d0d0;
-}
-
 

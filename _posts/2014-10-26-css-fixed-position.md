@@ -9,7 +9,7 @@ tags: [css布局]
 
 position布局中的fixed布局相对于absolute,relative比较容易，它是相对于浏览器的窗口定位。下面是我用fixed布局来实现的div居中和div右下角的小样，效果可以自行验证。
 
-```css
+{% highlight html %}
 
 <!DOCTYPE html>  
 <html>  
@@ -92,7 +92,7 @@ position布局中的fixed布局相对于absolute,relative比较容易，它是�
 </body>  
 </html>  
 
-```
+{% endhighlight %}
 
 
 

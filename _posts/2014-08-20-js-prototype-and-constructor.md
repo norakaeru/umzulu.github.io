@@ -13,7 +13,7 @@ tags: [prototype, constructor]
 
 我们可以用对象的`constructor`方法返回创建该对象的构造函数，需要注意的是：<span class="warning">constructor 并不是该对象自身的属性，而是其构造函数的原型对象的属性<span>。
 
-```javascript
+{% highlight javascript %}
 function Person (name) {this.name = name};
 var p = new Person("zhangsan");
 
@@ -21,7 +21,7 @@ var p = new Person("zhangsan");
 > p.hasOwnProperty("constructor")  // false
 > Person.prototype.constructor  // function Person (name) {this.name = name}
 > Person.prototype.hasOwnProperty("constructor")  // true
-```
+{% endhighlight %}
 
 图例：
 
@@ -33,17 +33,17 @@ var p = new Person("zhangsan");
 
 于是`p`很自然地通过原型链取到了属性`constructor`，即是其构造函数`Person`。
 
-```javascript
+{% highlight javascript %}
 > p.__proto__ === Person.prototype  // true
 > Person.prototype.constructor === Person  // true
 > p.constructor === Person  // true
-```
+{% endhighlight %}
 
 上面的例子只是为了说明`constructor`在原型链中的作用，更实际一点的意义在于通过`prototype`和`constructor`来实现继承。
 
 ***3.原型继承*** 
 
-```javascript
+{% highlight javascript %}
 // 父类
 function Person(name) {
     this.name = name;
@@ -61,7 +61,7 @@ Programmer.prototype = new Person();
 var p = new Programmer("zhangsan");
 
 > p.getName() // "my name is zhangsan" 
-```
+{% endhighlight %}
 
 图例：
 
@@ -78,14 +78,14 @@ var p = new Programmer("zhangsan");
 
 (2) 子类原型对象的`constructor`指针发生改变。
 
-```javascript
+{% highlight javascript %}
 > p.constructor  // function Person(name) {this.name = name;}
 // p是Programmer的实例，但是p.constructor不是指向Programmmer，而是Person
-```
+{% endhighlight %}
 
 ***3.改进的原型继承***
 
-```javascript
+{% highlight javascript %}
 // 父类
 function Person(name) {
     this.name = name;
@@ -108,7 +108,7 @@ Programmer.prototype.constructor = Programmer;
 var p = new Programmer("zhangsan");
 
 > p.getName() // "my name is zhangsan" 
-```
+{% endhighlight %}
 
 图例：
 

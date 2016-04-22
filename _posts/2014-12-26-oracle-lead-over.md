@@ -27,12 +27,12 @@ ID_    |BERTH\_CODE_ |IS\_LOCKED_
 
 我用到了`ORACLE`的分析函数`LEAD`:
 
-```sql
+{% highlight sql %}
  select id_, to_number(berth_code_), to_number(berth_code_) + ?1 as expect_code_, 
  lead(to_number(berth_code_), ?1) over (order by to_number(berth_code_)) as actual_code_ 
  from TEST
  where is_locked_ = 'N';
-```
+{% endhighlight %}
 
 `?1`的传值是N-1（N为售票数），此时应该是3-1=2。
 
@@ -50,13 +50,13 @@ ID_    |BERTH\_CODE_ |EXPECT\_CODE_ |ACTUAL\_CODE_
 
 直到`expect_code_` = `actual_code_`，才找到符合条件的。
 
-```sql
+{% highlight sql %}
 select * from
 ( select id_, berth_code_, to_number(berth_code_) + ?1 as expect_code_, 
   lead(to_number(berth_code_), ?1) over (order by to_number(berth_code_)) as actual_code_ 
   from TEST
   where is_locked_ = 'N' ) t
  where t.expect_code_ = t.actual_code_ and ROWNUM < 2;
-```
+{% endhighlight %}
 
 然后再用`BETWEEN berth_code_ AND expect_code_`即可查询出所需铺位。

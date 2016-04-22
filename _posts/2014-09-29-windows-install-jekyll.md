@@ -23,9 +23,9 @@ Jekyll是一个由ruby开发的静态站点生成器，我们可以使用GitHub�
   
  3.查看`Ruby`是否成功安装
  
- ```PowerShell
+{% highlight bash %}
  > ruby -v
- ```
+{% endhighlight %}
  
  ***安装DevKit***
  
@@ -37,31 +37,31 @@ Jekyll是一个由ruby开发的静态站点生成器，我们可以使用GitHub�
  
  3.安装
  
- ```PowerShell
+{% highlight bash %}
  > cd "C:\DevKit"
  > ruby dk.rb init
  > notepad config.yml
- ```
+{% endhighlight %}
  
  在末尾添加新行 “`- C:\Ruby2`”，（ruby安装目录），保存文件并退出。
  
- ```PowerShell
+{% highlight bash %}
  > ruby dk.rb review
  > ruby dk.rb install
- ```
+{% endhighlight %}
  
  ***安装Jekyll***
  
  可以将`RubyGems`的源地址改为国内的镜像，以提高安装的速度。
  
- ```ruby
+{% highlight ruby%}
  > gem sources --remove https://rubygems.org/
  > gem sources --add http://ruby.taobao.org/
- ```
+{% endhighlight %}
  
- ```PowerShell
+{% highlight bash %}
  > gem install jekyll
- ```
+{% endhighlight %}
  
  Jekyll默认的语法高亮插件是Python开发的Pygments，所以我们首先要安装Python。
  
@@ -73,9 +73,9 @@ Jekyll是一个由ruby开发的静态站点生成器，我们可以使用GitHub�
  
  3.查看`Python`是否成功安装
  
- ```PowerShell
+{% highlight bash %}
  > python -v
- ```
+{% endhighlight %}
  
  ***安装Easy_Install***
  
@@ -83,23 +83,23 @@ Jekyll是一个由ruby开发的静态站点生成器，我们可以使用GitHub�
  
  2.对于Windows7的机器，下载 [ez_setup.py](https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py) 并保存到`C:\ez_setup.py`， 然后从命令行使用`Python`运行此文件：
  
- ```Ruby
+{% highlight ruby %}
  > python C:\ez_setup.py
- ```
+{% endhighlight %}
  
  3.添加Python的Scripts路径 (如：`C:\Python27\Scripts`) 至PATH
  
  4.查看`easy_install`是否正确安装
  
- ```Python
+{% highlight python%}
  > easy_install --version
- ```
+{% endhighlight %}
  
  ***用Easy_Install安装Pygments***
  
- ```Python
+{% highlight python%}
  > easy_install pygments
- ```
+{% endhighlight %}
  
  至此Jekyll安装完毕。
  

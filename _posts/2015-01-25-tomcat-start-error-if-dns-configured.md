@@ -9,17 +9,17 @@ tags: [unix]
 
 unix服务器配置DNS上网：
 
-```PowerShell
+{% highlight bash %}
 vi /etc/resolv.conf
 # add DNS
 nameserver x.x.x.x
-```
+{% endhighlight %}
 
 添加DNS地址，并重启网络服务以生效：
 
-```PowerShell
+{% highlight bash %}
 refresh inetd
-```
+{% endhighlight %}
 
 修改之后能ping通外网了，似乎一切都非常顺利，但是当我启tomcat时却遇到了麻烦：shell里虽然显示`success started`，但是在访问8080时却长时间没有反应，查看tomcat日志后发现错误：`SEVERE: StandardServer.await: create[8005]: Throwable occurred: java.net.BindException: The socket name is not available on this system.`
 
@@ -27,9 +27,9 @@ refresh inetd
 
 最终在tomcat wiki中找到了解决办法：`Your networking configuration is not correct. If you attempt to ping localhost and don't see 127.0.0.1 you need to look into your /etc/host.conf (most Unixes/Linux) or /etc/netsvc.conf (AIX) file to ensure that something like "hosts = local, bind" is present.`
 
-```PowerShell
+{% highlight bash %}
 vi /etc/netsvc.conf
-```
+{% endhighlight %}
 
 添加保存`hosts = local, bind`，搞定。别忘了重启网络服务，我在这也踩过坑。
 
