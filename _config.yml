@@ -13,9 +13,7 @@ author:
 highlighter: pygments
 #pygments: false
 #highlighter: rouge
-markdown: redcarpet
-redcarpet:
-    extensions: ["fenced_code_blocks", "tables", "highlight", "strikethrough"]
+markdown: kramdown
 paginate: 5
 permalink: pretty
 cdn: http://fengz.qiniudn.com   
